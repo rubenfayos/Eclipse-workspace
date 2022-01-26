@@ -1,6 +1,12 @@
 package Principal;
 import java.util.Scanner;
 
+/**
+ * @author Fayos
+ * @version 1.0
+ * @since 19/01/2022
+ */
+
 import Elementos.persona;
 import Elementos.coche;
 

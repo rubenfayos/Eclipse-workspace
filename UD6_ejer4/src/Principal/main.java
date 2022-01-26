@@ -1,6 +1,12 @@
 package Principal;
 import java.util.Scanner;
 
+/**
+ * @author Fayos
+ * @version 1.0
+ * @since 19/01/2022
+ */
+
 public class main {
 
 	public static void main(String[] args) {

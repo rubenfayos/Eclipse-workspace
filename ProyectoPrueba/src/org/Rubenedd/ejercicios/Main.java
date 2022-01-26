@@ -6,13 +6,17 @@ public class Main {
 
   public static void main(String[] args) {
     
-    Math.PI;
-    
-    String.format(null, null, args);
-    
-    Integer.BYTES;
+	  String s = "Esto es una oración de prueba";
+	  
+	  String[] prueba = s.split(" ", 6);
+	  
+	  for(int i =0; i<prueba.length; i++) {
+	  
+	  System.out.println(prueba[i]);
+	  
+	  }
+	  
 
-    System.inheritedChannel();
     
   }
 

@@ -27,6 +27,7 @@ public class libro {
 	/**
 	 * Metodo get de Título
 	 * @param titulo Título del libro
+	 * @return Devuelve el título
 	 */
 	
 	public String getTitulo() {
@@ -45,6 +46,7 @@ public class libro {
 	/**
 	 * Método get del autor
 	 * @param autor Autor del libro
+	 * @return Devuelve el autor
 	 */
 	
 	public String getAutor() {
@@ -63,6 +65,7 @@ public class libro {
 	/**
 	 * Método get de ejemplares
 	 * @param ejemplares Cantidad de ejemplares de un libro
+	 * @return Devuelve los ejemplares
 	 */
 	
 	
@@ -83,6 +86,7 @@ public class libro {
 	/**
 	 * Método get de prestados
 	 * @param prestados Cantidad de libros prestados
+	 * @return Devuelve los prestados
 	 */
 	
 	public int getPrestados() {

@@ -4,6 +4,8 @@ package Elementos;
 	 * @author Fayos
 	 * @version 1.0
 	 * @since 19/01/2022
+	 * <h2>coche</h2>
+	 * Esta clase creara un coche al que se le asignarán una serie de atributos.
 	 */
 
 public class coche {
@@ -26,6 +28,7 @@ public class coche {
 	/**
 	 * Método get para marca 
 	 * @param Marca Marca del coche
+	 * @return Devuelve la marca
 	 */
 	
 	public String getMarca(){
@@ -44,6 +47,7 @@ public class coche {
 	/**
 	 * Método get para color
 	 * @param Color Color del coche
+	 * @return Devuelve el color
 	 */
 	
 	public String getColor(){
@@ -62,6 +66,7 @@ public class coche {
 	/**
 	 * Método get para modelo
 	 * @param Modelo Modelo del coche
+	 * @return Devuelve el modelo
 	 */
 	
 	public String getModelo(){
@@ -82,7 +87,7 @@ public class coche {
 	}
 	
 	/**
-	 * Método por defecto
+	 * Método por defecto para la creación de un coche
 	 */
 	
 	public coche() {

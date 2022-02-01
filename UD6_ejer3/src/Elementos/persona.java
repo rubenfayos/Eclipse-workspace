@@ -4,6 +4,9 @@ package Elementos;
 	 * @author Fayos
 	 * @version 1.0
 	 * @since 19/01/2022
+	 * <h2>Persona</h2>
+	 * Esta clase creara una persona, además, tiene varias funciones como la asignación
+	 * de un coche (creado en la clase coche) a la persona.
 	 */
 
 public class persona {
@@ -16,6 +19,7 @@ public class persona {
 	/**
 	 * Método get para nombre 
 	 * @param Nombre Nombre de la persona
+	 * @return Devuelve el nombre
 	 */
 	
 	public String getNombre() {
@@ -34,6 +38,7 @@ public class persona {
 	/**
 	 * Método get para edad 
 	 * @param Edad Edad de la persona
+	 * @return Devuelve la edad
 	 */
 	
 	public int getEdad() {
@@ -80,6 +85,7 @@ public class persona {
 	/**
 	 * Método get para el coche de la persona
 	 * @param C Coche de la persona
+	 * @return Devuelve el coche de la persona
 	 */
 	
 	public coche getCoche() {

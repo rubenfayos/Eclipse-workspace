@@ -28,6 +28,7 @@ public class libro {
 	
 	public int getestado() {
 		return this.estado;
+
 	}
 	
 	public void setISBN(String ISBN) {
@@ -80,6 +81,14 @@ public class libro {
 		}else if(tema == 'S') {
 			this.tematica = "Suspense";
 		}
+	}
+	
+	public void prestamo() {
+		this.estado++;
+	}
+	
+	public void devolucion() {
+		this.estado--;
 	}
 	
 

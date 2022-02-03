@@ -56,8 +56,15 @@ public class main {
 				salto = teclado.nextLine();
 		break;
 			case 4:
+				recomendar(arraylibros);
+				System.out.println("Pulsa para continuar...");
+				teclado.nextLine();
+				salto = teclado.nextLine();
 		break;
-		default:		
+		default: System.out.println("Opción incorrecta");
+		System.out.println("Pulsa para continuar...");
+		teclado.nextLine();
+		salto = teclado.nextLine();
 		}
 		
 		}while(menu < 4 || menu > 1);
@@ -66,6 +73,7 @@ public class main {
 	
 	public static void prestamo(libro[] arraylibros) {
 		Scanner teclado = new Scanner(System.in);
+		boolean comp = false;
 		
 		for(int i = 0; i < arraylibros.length; i++ ) {
 			if(arraylibros[i].getestado() == 0) {
@@ -78,16 +86,25 @@ public class main {
 			}
 		}
 		
+		do {
+		
 		System.out.println("¿Cual quieres llevarte? (Introduce la ID)");
 		
 		int id = teclado.nextInt();
 		
 		for(int i = 0; i < arraylibros.length; i++ ) {
 			if(arraylibros[i].getid() == id) {
+				if(arraylibros[i].getestado() == 0) {
 				arraylibros[i].prestamo();
 				System.out.println("El libro se ha prestado correctamente");
+				comp = true;
+				}
+				}
 			}
+		if (comp== false) {
+			System.out.println("Opción incorrecta");
 		}
+		}while(comp == false);
 		
 	}
 	
@@ -107,6 +124,7 @@ public class main {
 	
 	public static void devolucion(libro[] arraylibros) {
 		Scanner teclado = new Scanner(System.in);
+		boolean comp = false;
 		
 		for(int i = 0; i < arraylibros.length; i++ ) {
 			if(arraylibros[i].getestado() == 1) {
@@ -119,17 +137,56 @@ public class main {
 			}
 		}
 		
+		do {
+		
 		System.out.println("¿Cual quieres devolver? (Introduce la ID)");
 		
 		int id = teclado.nextInt();
 		
 		for(int i = 0; i < arraylibros.length; i++ ) {
 			if(arraylibros[i].getid() == id) {
+				if(arraylibros[i].getestado() == 1) {
 				arraylibros[i].devolucion();
 				System.out.println("El libro se ha devuelto correctamente");
+				comp = true;
+				}
 			}
+			
 		}
 		
+		if (comp== false) {
+			System.out.println("Opción incorrecta");
+		}
+		
+		}while(comp == false);
+	}
+	
+	public static void recomendar(libro[] arraylibros) {
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Cual de las siguientes temáticas prefieres: (Terror | Ciencia Ficción | Humor | Suspense)");
+		
+		String tematica = teclado.nextLine();
+		
+		System.out.println("Cuantas ganas tienes de leer: (1 Muy pocas | 2 Pocas | 3 Bastantes | 4 Muchas)");
+		
+		int ganas = teclado.nextInt();
+		
+		for(int i = 0; i < arraylibros.length; i++ ) {
+			if(arraylibros[i].getTematica().equalsIgnoreCase(tematica)) {
+				if(arraylibros[i].getnumpag() < 150 && ganas == 1) {
+					System.out.println("El libro recomendado es: " + arraylibros[i].getTitulo() + " id : " + arraylibros[i].getid() + ", num pag: " + arraylibros[i].getnumpag() + ",temática: " + arraylibros[i].getTematica());
+				}else if(arraylibros[i].getnumpag() >= 150 && arraylibros[i].getnumpag() < 300 && ganas == 2) {
+					System.out.println("El libro recomendado es: " + arraylibros[i].getTitulo() + " id : " + arraylibros[i].getid() + ", num pag: " + arraylibros[i].getnumpag() + ",temática: " + arraylibros[i].getTematica());
+				}else if(arraylibros[i].getnumpag() >= 300 && arraylibros[i].getnumpag() < 600 && ganas == 3) {
+					System.out.println("El libro recomendado es: " + arraylibros[i].getTitulo() + " id : " + arraylibros[i].getid() + ", num pag: " + arraylibros[i].getnumpag() + ",temática: " + arraylibros[i].getTematica());
+				}else if(arraylibros[i].getnumpag() >= 600 && ganas == 4){
+					System.out.println("El libro recomendado es: " + arraylibros[i].getTitulo() + " id : " + arraylibros[i].getid() + ", num pag: " + arraylibros[i].getnumpag() + ",temática: " + arraylibros[i].getTematica());
+				}else {
+					System.out.println("Lo sentimos no hay ninguna opción para tí");
+				}
+			}
+		}
 	}
 }
 

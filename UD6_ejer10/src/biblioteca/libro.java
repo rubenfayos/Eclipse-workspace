@@ -91,5 +91,9 @@ public class libro {
 		this.estado--;
 	}
 	
+	public void recomendador(String Tematica, String numpag) {
+		
+	}
+	
 
 }

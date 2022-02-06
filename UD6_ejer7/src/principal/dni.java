@@ -9,12 +9,14 @@ public class dni {
 	}
 	
 	
-	public String getDni() {
+	public int getDni() {
+		return this.dni;
 		
 	}
 	
-	public char leer(int dni) {
+	public char leer() {
 		
+		int dni=this.dni;
 		char letra = 'a';
 		
 		if(dni%23 == 0) {
@@ -63,8 +65,14 @@ public class dni {
 			letra = 'K';
 		}else if (dni%23 == 22) {
 			letra = 'E';
-		}t 
+		}
 		return letra;
 	}
+	
+	public String toString(int dni, char letra) {
+		String DNI=String.valueOf(dni) + "-" +letra;
+		return DNI;
+	}
+
 
 }

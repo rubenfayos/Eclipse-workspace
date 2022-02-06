@@ -4,7 +4,7 @@ public class disco {
 	
 	private int id, genero, año;
 	String nombre, autor;
-	cancion[] canciones = new cancion[5];
+	
 	
 	//Getters & Setters
 	
@@ -71,6 +71,16 @@ public class disco {
 		return valoracion;
 	}
 	
-	
+	public cancion[] canciones() {
+		cancion[] disco1 = new cancion[5];
+		
+		disco1[0] = new cancion(01, "Esta cabron ser yo", 251, 1);
+		disco1[1] = new cancion(02, "Si veo a tu mama", 182, 2);
+		disco1[2] = new cancion(03, "La difícil", 173, 3);
+		disco1[3] = new cancion(04, "Pero ya no", 232, 3);
+		disco1[4] = new cancion(05, "Safaera", 203, 2);
+		return disco1;
+	}
+
 
 }

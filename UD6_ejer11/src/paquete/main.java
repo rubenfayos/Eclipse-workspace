@@ -120,6 +120,7 @@ do {
 			case 2:
 				System.out.println("Estos son los discos:");
 				listarDiscos(discos);
+				listarCancionesDisco();
 				System.out.println("Pulsa para continuar...");
 				teclado.nextLine();
 				salto = teclado.nextLine();
@@ -167,6 +168,19 @@ do {
 }
 
 	public static void listarCancionesDisco( ) {
+		System.out.println("Selecciona el disco que quieres visualizar:");
+		Scanner teclado = new Scanner(System.in);
+		int disco = teclado.nextInt();
+		
+		if(disco == 1) {
+			for(int i = 0; i < disco.length; i++ ) {
+				System.out.println("Disco: " + discos[i].getNombre() + " , año: " + discos[i].getAño());
+			}
+			
+			
+			
+		}
+		
 	
 	}
 	

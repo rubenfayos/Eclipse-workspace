@@ -68,9 +68,12 @@ public class main {
 		episodios[28] = new episodio(1, 17, "Sangre", 16.45, series[5]);
 		episodios[29] = new episodio(1, 01, "Tyler herro", 12.30, series[5]);
 		
+		System.out.println("Esta aplicación funciona como un reproductor de series y sus episodios, tambien tiene una funcion de recomendador de series y un generador de series aleatorias.");
+
+		
 do {
 			
-			System.out.println("elige una de las siguientes opcciones: \n1)Ver Series \n2)Ver episodios \n3)Recomendador de series \n4)Serie aleatoria \n5)Salir");
+			System.out.println("elige una de las siguientes opciones: \n1)Ver Series \n2)Ver episodios \n3)Recomendador de series \n4)Serie aleatoria \n5)Salir");
 			
 			menu = teclado.nextInt();
 		
@@ -96,7 +99,7 @@ do {
 				salto = teclado.nextLine();
 		break;
 			case 4:
-				random = (int) (Math.random()*6);
+				random = (int) (Math.random()*7);
 				System.out.println("La serie aleatoria es: ");
 				System.out.println(series[random].getNombre() + " " + series[random].getAño() + ", Temporadas: " + series[random].getTemporadas());
 				System.out.println("Pulsa para continuar...");

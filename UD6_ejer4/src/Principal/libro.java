@@ -1,4 +1,4 @@
-package Principal;
+package principal;
 
 /**
  * @author Fayos
@@ -6,12 +6,14 @@ package Principal;
  * @since 19/01/2022
  */
 
-public class libro {
+public class Libro {
 	
 	//variables
 	
-	private String titulo, autor;
-	private int ejemplares, prestados;
+	private String titulo;
+	private String autor;
+	private int ejemplares;
+	private int prestados;
 	
 	//constructores
 	
@@ -102,7 +104,7 @@ public class libro {
 	 */
 	
 	
-	public libro(String titulo, String autor, int ejemplares, int prestados) {
+	public Libro(String titulo, String autor, int ejemplares, int prestados) {
 		this.titulo = titulo;
 		this.autor = autor;
 		this.ejemplares = ejemplares;

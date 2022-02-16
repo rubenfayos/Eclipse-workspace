@@ -83,6 +83,14 @@ public class serie {
 		
 	}
 	
+	public boolean compserie() {
+
+		if (this.codigo > 0) {
+			return true;
+		}else
+			return false;
+	}
+	
 	
 
 }

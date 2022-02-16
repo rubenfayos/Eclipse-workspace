@@ -10,13 +10,15 @@ public class main {
 		
 		//Series
 		
-		serie[] series = new serie[6];
+		serie[] series = new serie[8];
 		series[0] = new serie("El juego del calamar", 01, 1, 2021, 2, 4.8);
 		series[1] = new serie("Peaky Blinders", 02, 5, 2013, 3, 4.9);
 		series[2] = new serie("The mandalorian", 03, 2, 2019, 2, 4.6);
 		series[3] = new serie("Hora de aventuras", 04, 9, 2003, 1, 4.3);
 		series[4] = new serie("Bob Esponja", 05, 1, 1999, 1, 4.1);
 		series[5] = new serie("Arrow", 06, 1, 2012, 3, 3.9);
+		series[6] = new serie("", 0, 0, 0, 0, 0);
+		series[7] = new serie("", 0, 0, 0, 0, 0);
 		
 		episodio[] episodios = new episodio[30];
 		
@@ -70,10 +72,9 @@ public class main {
 		
 		System.out.println("Esta aplicación funciona como un reproductor de series y sus episodios, tambien tiene una funcion de recomendador de series y un generador de series aleatorias.");
 
-		
 do {
 			
-			System.out.println("elige una de las siguientes opciones: \n1)Ver Series \n2)Ver episodios \n3)Recomendador de series \n4)Serie aleatoria \n5)Salir");
+			System.out.println("elige una de las siguientes opciones: \n1)Ver Series \n2)Ver episodios \n3)Recomendador de series \n4)Serie aleatoria \n5)Añadir serie");
 			
 			menu = teclado.nextInt();
 		
@@ -106,13 +107,19 @@ do {
 				teclado.nextLine();
 				salto = teclado.nextLine();
 		break;
+			case 5:
+			System.out.println(añadirserie(series));
+			System.out.println("Pulsa para continuar...");
+			teclado.nextLine();
+			salto = teclado.nextLine();
+		break;
 		default: System.out.println("Opción incorrecta");
 		System.out.println("Pulsa para continuar...");
 		teclado.nextLine();
 		salto = teclado.nextLine();
 		}
 		
-		}while(menu != 5);
+		}while(menu != 6);
 	
 	System.out.println("Has salido del programa con éxito.");
 
@@ -122,8 +129,10 @@ do {
 		System.out.println("Estas son las series que tenemos disponibles: ");
 		
 		for(int i = 0; i < series.length; i++) {
+			if(series[i].getCodigo() > 0) {
 			System.out.println((i+1) + ") Nombre: " + series[i].getNombre() + ", Año: " + series[i].getAño() + ", Temporadas: " + series[i].getTemporadas() + ", Público: " + series[i].gettipopublico() + ", Valoracion: " + series[i].getValoracion()+ "/5.");
-		}
+			}
+		}	
 	}
 	
 	public static void verepisodios(serie[] series, episodio[] episodios) {
@@ -131,7 +140,9 @@ do {
 		System.out.println("Estas son las series que tenemos disponibles: ");
 		
 		for(int i = 0; i < series.length; i++) {
+			if(series[i].getCodigo() > 0) {
 			System.out.println((i+1) + ") " + series[i].getNombre() + " " + series[i].getAño() + ", Temporadas: " + series[i].getTemporadas());
+			}
 		}
 		
 		System.out.println("Elige la serie para ver los episodios: ");
@@ -167,4 +178,59 @@ do {
 			}
 		}	
 	}				
+
+public static boolean añadirserie(serie[] series) {
+	Scanner teclado = new Scanner(System.in);
+
+	int comp = 0;
+	
+	for(int i = 0; i < series.length; i++) {
+		if(series[i].compserie() == true) {
+			comp++;
+		}
+	}
+	
+	int comp2 = comp;
+	
+	
+	System.out.println("Vamos a añadir una serie, (solo se pueden introducir 2)\nPrimero introduce el nombre ");
+	series[comp].setNombre(teclado.nextLine());
+	System.out.println("Ahora el año");
+	series[comp].setAño(teclado.nextInt());
+	
+	do {
+	System.out.println("Ahora introduce un código:");
+	series[comp].setCodigo(teclado.nextInt());
+	}while(series[comp].getCodigo() <= 1);
+
+	
+	do {
+	System.out.println("Ahora introduce el público (1 Infantil, 2 Jóvenes, 3 Adultos):");
+	series[comp].setPublico(teclado.nextInt());
+	}while(series[comp].getPublico() < 1 || series[comp].getPublico() > 3);
+	
+	do {
+	System.out.println("Ahora introduce la cantidad de temporadas que tiene la serie");
+	series[comp].setTemporadas(teclado.nextInt());
+	}while(series[comp].getTemporadas() < 1);
+	
+	do {
+	System.out.println("Por último introduce una valoración (0 a 5)");
+	series[comp].setValoracion(teclado.nextDouble());
+	}while(series[comp].getValoracion() <= 0 || series[comp].getValoracion() > 5);
+	
+	comp = 0;
+	
+	for(int i = 0; i < series.length; i++) {
+		if(series[i].compserie() == true) {
+			comp++;
+		}
+	}
+	
+	if(comp > comp2) {
+		return true;
+	}else
+		return false;
+	}
 }
+

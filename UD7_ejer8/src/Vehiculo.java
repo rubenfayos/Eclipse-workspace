@@ -1,5 +1,5 @@
 
-public class Vehiculo {
+public abstract class Vehiculo {
 	
 	private int numSerie, año, precio;
 	private String marca;

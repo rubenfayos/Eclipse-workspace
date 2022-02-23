@@ -1,8 +1,9 @@
 
 public class Jugador {
 	
-	private int numero;
-	private String nombre, posicion;
+	private int numero, golesAnotados, minutos;
+	private String nombre;
+	private String posicion;
 	
 	public int getNumero() {
 		return numero;
@@ -27,8 +28,23 @@ public class Jugador {
 		
 	}
 	
-	public Jugador(int numero, String nombre, String posicion) {
+	public int getGolesAnotados() {
+		return golesAnotados;
+	}
+	public void setGolesAnotados(int golesAnotados) {
+		this.golesAnotados = golesAnotados;
+	}
+	public int getMinutos() {
+		return minutos;
+	}
+	public void setMinutos(int minutos) {
+		this.minutos = minutos;
+	}
+	
+	public Jugador(int numero, int golesAnotados, int minutos, String nombre, String posicion) {
 		this.numero=numero;
+		this.golesAnotados=golesAnotados;
+		this.minutos=minutos;
 		this.nombre=nombre;
 		this.posicion=posicion;
 	}

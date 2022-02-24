@@ -41,13 +41,18 @@ public class Main {
 		break;
 		
 			case 3:
+				System.out.println("Este es el orden de los jugadores por goles");
+				listarPorGoles(jugadores);
+				System.out.println("Este es el orden de los jugadores por goles");
 				listarPorGoles(jugadores);
 		break;
 		
 			case 4:
+				System.out.println("Este es el orden de los jugadores por minutos");
 				listarPorMinutos(jugadores);
 		break;
 			case 5:
+				System.out.println("Este es el orden de los porteros por goles encajados");
 				listarPorGolesEncajados(jugadores);
 		break;
 			
@@ -103,6 +108,8 @@ public class Main {
 
 	public static void listarPorGoles(Jugador[] jugadores) {
 		
+		int[] jugadoresaux = new int[12];
+		
 		int num=0;
 		for(int i = 3; i<jugadores.length; i++) {
 			for(int x = 3; x<jugadores.length; x++) {		
@@ -111,8 +118,14 @@ public class Main {
 				}	
 			}
 			System.out.println("Posición: " + jugadores[num].getPosicion() + ", nombre: " + jugadores[num].getNombre() + ", número: " + jugadores[num].getNumero() + ", minutos jugados " + jugadores[num].getMinutos() + ", goles anotados: " + jugadores[num].getGolesAnotados());
+			jugadoresaux[num]=jugadores[num].getGolesAnotados();
 			jugadores[num].setGolesAnotados(0);
 		}
+		
+		for(int x = 0; x<jugadores.length; x++) {
+			jugadores[x].setGolesAnotados(jugadoresaux[x]);
+			}
+		
 
 	}
 	

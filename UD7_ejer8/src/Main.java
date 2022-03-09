@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
@@ -7,9 +9,32 @@ public class Main {
 
 		Vehiculo[] listaCoches = new Vehiculo[12];
 		
-		listaCoches[0] = new Compacto(1, 2014, 23000, "Ford", true, 5, 5);
-		listaCoches[1] = new Compacto(2, 2010, 23000, "Fiat", false, 4, 5);
-		listaCoches[2] = new Compacto(3, 2007, 13000, "Volkswagen", true, 5, 5);
+		Compacto c1 = new Compacto(1, 2014, 23000, "Ford", true, 5, 5);
+		Compacto c2 = new Compacto(2, 2010, 23000, "Fiat", false, 4, 5);
+		Compacto c3 = new Compacto(3, 2007, 13000, "Volkswagen", true, 5, 5);
+		Compacto c4 = new Compacto(4, 2017, 15000, "Kia", true, 5, 5);
+		Compacto c5 = new Compacto(5, 2006, 5000, "Hyundai", false, 5, 5);
+		
+		ArrayList<Compacto> compactos = new ArrayList<Compacto>();
+		
+		compactos.add(c1);
+		compactos.add(c2);
+		compactos.add(c3);
+		compactos.add(c4);
+		compactos.add(c5);
+		
+		System.out.println(compactos.size());
+		
+		for(Compacto c : compactos) {
+			System.out.println(c.getAño());
+		}
+		
+		Iterator it= compactos.iterator();
+		
+		while(it.hasNext()) {
+			Compacto c = (Compacto) it.next();
+			System.out.println(c.getMarca());
+		}
 		
 		listaCoches[3] = new CocheLujo(11, 2019, 55000, "Maseratti", true, 2, 3);
 		listaCoches[4] = new CocheLujo(12, 2020, 75000, "Porsche", false, 2, 3);

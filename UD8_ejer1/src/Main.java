@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -55,7 +54,15 @@ public class Main {
 			case 4: agruparPrecios(electrodomesticos);
 			break;
 			
-			case 5: System.out.println("Saliendo del programa...");
+			case 5:	System.out.println("Lista de precio de menor a mayor: \n");
+					ordenarPrecio(electrodomesticos);
+					
+			case 6: System.out.println("Lista de peso de mayor a menor: \n");
+					ordenarPeso(electrodomesticos);
+					
+			case 7:
+					ordenarConsumo(electrodomesticos);
+				
 			break;
 			
 			default: System.out.println("Opción incorrecta");
@@ -63,6 +70,7 @@ public class Main {
 			}
 		
 		}while(opcion != 5);
+		
 		
 		
 	}
@@ -184,6 +192,87 @@ public class Main {
 		System.out.println("Precio agrupado lavadoras " + precioL + "\n");
 		
 	}
+	
+	public static void ordenarPrecio(ArrayList<Electrodomestico> electrodomesticos) {
+		
+		Collections.sort(electrodomesticos, new OrdenarPorPrecio());
+		
+		int i = 0;
+		
+		for(Electrodomestico e : electrodomesticos) {
+		
+			if(electrodomesticos.get(i) instanceof Lavadora) {
+				Lavadora l = (Lavadora) e;
+				System.out.println((i+1)+") Lavadora Peso: " + l.getPeso() + "kg ,Color: " + l.getColor() + " ,Eficiencia energetica: " + l.getConsumoEnergetico() + ", Capacidad de carga: " + l.getCarga() +" ,Precio final: " + l.precioFinal());
+			
+			}else if(e instanceof Television) {
+				Television t = (Television) e;
+				System.out.println((i+1)+") Television Peso: " + t.getPeso() + "kg ,Color: " + t.getColor() + " ,Eficiencia energetica: " + t.getConsumoEnergetico() + ", Pulgadas: " + t.getResolucion() + ", Smart TV: " + t.isSmartv() +" ,Precio final: " + t.precioFinal());
+			
+			}else if(electrodomesticos.get(i) instanceof Electrodomestico) {
+				System.out.println((i+1)+") Electrodomestico Peso: " + e.getPeso() + "kg ,Color: " + e.getColor() + " ,Eficiencia energetica: " + e.getConsumoEnergetico() + " ,Precio final: " + e.precioFinal());
+			}
+			
+			i++;
+		}
+		
+		System.out.println("");
+			
+		}
+		
+	public static void ordenarPeso(ArrayList<Electrodomestico> electrodomesticos) {
+		
+		Collections.sort(electrodomesticos, new OrdenarPorPeso());
+		
+		int i = 0;
+		
+		for(Electrodomestico e : electrodomesticos) {
+		
+			if(electrodomesticos.get(i) instanceof Lavadora) {
+				Lavadora l = (Lavadora) e;
+				System.out.println((i+1)+") Lavadora Peso: " + l.getPeso() + "kg ,Color: " + l.getColor() + " ,Eficiencia energetica: " + l.getConsumoEnergetico() + ", Capacidad de carga: " + l.getCarga() +" ,Precio final: " + l.precioFinal());
+			
+			}else if(e instanceof Television) {
+				Television t = (Television) e;
+				System.out.println((i+1)+") Television Peso: " + t.getPeso() + "kg ,Color: " + t.getColor() + " ,Eficiencia energetica: " + t.getConsumoEnergetico() + ", Pulgadas: " + t.getResolucion() + ", Smart TV: " + t.isSmartv() +" ,Precio final: " + t.precioFinal());
+			
+			}else if(electrodomesticos.get(i) instanceof Electrodomestico) {
+				System.out.println((i+1)+") Electrodomestico Peso: " + e.getPeso() + "kg ,Color: " + e.getColor() + " ,Eficiencia energetica: " + e.getConsumoEnergetico() + " ,Precio final: " + e.precioFinal());
+			}
+			
+			i++;
+		}
+		
+		System.out.println("");
+		
+	}
 
+	public static void ordenarConsumo(ArrayList<Electrodomestico> electrodomesticos) {
+		
+		Collections.sort(electrodomesticos, new OrdenarPorConsumo());
+		
+		int i = 0;
+		
+		for(Electrodomestico e : electrodomesticos) {
+		
+			if(electrodomesticos.get(i) instanceof Lavadora) {
+				Lavadora l = (Lavadora) e;
+				System.out.println((i+1)+") Lavadora Peso: " + l.getPeso() + "kg ,Color: " + l.getColor() + " ,Eficiencia energetica: " + l.getConsumoEnergetico() + ", Capacidad de carga: " + l.getCarga() +" ,Precio final: " + l.precioFinal());
+			
+			}else if(e instanceof Television) {
+				Television t = (Television) e;
+				System.out.println((i+1)+") Television Peso: " + t.getPeso() + "kg ,Color: " + t.getColor() + " ,Eficiencia energetica: " + t.getConsumoEnergetico() + ", Pulgadas: " + t.getResolucion() + ", Smart TV: " + t.isSmartv() +" ,Precio final: " + t.precioFinal());
+			
+			}else if(electrodomesticos.get(i) instanceof Electrodomestico) {
+				System.out.println((i+1)+") Electrodomestico Peso: " + e.getPeso() + "kg ,Color: " + e.getColor() + " ,Eficiencia energetica: " + e.getConsumoEnergetico() + " ,Precio final: " + e.precioFinal());
+			}
+			
+			i++;
+		}
+		
+		System.out.println("");
+		
+	}
+	
 	
 }

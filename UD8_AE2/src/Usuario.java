@@ -42,11 +42,12 @@ public class Usuario {
 		
 	}
 	
-	public Usuario(int id, int tipo, String nombre, String nif) {
+	public Usuario(int id, int tipo, String nombre, String nif, String contraseña) {
 		this.id=id;
 		this.tipo=tipo;
 		this.nombre=nombre;
 		this.nif=nif;
+		this.contraseña=contraseña;
 		
 	}
 

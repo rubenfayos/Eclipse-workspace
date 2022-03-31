@@ -20,35 +20,50 @@ public class Main {
 		
 		String nombre = "";
 		
+		ArrayList<Producto> productosOrdenados = new ArrayList<Producto>();
+		
+		productosOrdenados.addAll(datos.getproductos());
+		
+		Collections.sort(productosOrdenados, new OrdenarPorPrecio());
+		
 		do {
 		
-		System.out.println("Bienvenido a la tienda de zapatillas, que quieres hacer: \n1)Iniciar sesion \n2)Iniciar como anonimo");
+			System.out.println("Bienvenido a la tienda de zapatillas, que quieres hacer: \n1)Iniciar sesion \n2)Iniciar como anonimo \n3)Crear cuenta");
+			
+			menu = teclado.nextInt();
 		
-		menu = teclado.nextInt();
+		}while(menu <= 1 && menu >= 3);
 		
-		}while(menu != 1 && menu != 2);
+		teclado.nextLine();
+		
+		usuario.setTipo(3);
 		
 		if(menu == 1) {
 			
-			System.out.println("Ingresa tu nombre de usuario");
+			System.out.println("Ingresa tu nombre de usuario: ");
 			
-			teclado.nextLine();
+			usuario = datos.comprobarUsuario(teclado.nextLine());
 			
-			nombre=teclado.nextLine();
+		}else if(menu == 2) {
+			System.out.println("Ingresa un nombre de usuario");
+			usuario.setNombre(teclado.nextLine());
 			
-			usuario = datos.comprobarUsuario(nombre);
+		
+		}else if(menu == 3) {
+			usuario=usuario.creacionUsuario();
 			
 		}
 		
+		System.out.println("Bienvenido a la tienda " + usuario.getNombre() + "\n");
 		
 		
 		//Menú normal
 		
-		if(usuario.getId() > 1) {
+		if(usuario.getTipo() > 1) {
 		
 			do {
 				
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			
 				System.out.println("Selecciona la opciona que quieras: \n1)Listar productos " + "\n2)Mostrar producto más caro" + "\n3)Mostrar producto más barato" + "\n4)Añadir producto al carrito" + "\n5)Eliminar productos del carrito" + "\n6)Ver carrito" + "\n7)Ordenar por precio (Mayor a menor )" + "\n8)Ordenar por precio (Menor a mayor)" + "\n9)Ordenar por disponibilidad");
 				
@@ -56,61 +71,57 @@ public class Main {
 				
 				switch(menu) {
 				
-				case 1: datos.getProductos();
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				case 1: 
+					datos.listarCategorias();
+					System.out.println("Selecciona la categoría que quieras modificar (id o 0 listar todo): ");
+					menu=teclado.nextInt();
+					if(menu == 0) {
+						datos.getProductos();
+					}else if(menu > 0 && menu < 5)
+						datos.getProductosCategoria(menu);
+					else
+						System.out.println("Esa categoría no existe: ");
+				saltarMenu();
 				break;
 				
-				case 2: productoMasCaro(datos);
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				case 2: datos.masCaro(productosOrdenados);
+				saltarMenu();
 				break;
 				
-				case 3: productoMasBarato(datos);
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				case 3: datos.masBarato(productosOrdenados);
+				saltarMenu();
 				break;
 				
 				case 4: añadirProducto(datos, c);
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				saltarMenu();
 				break;
 				
 				case 5: eliminarProducto(datos, c);
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				saltarMenu();
 				break;
 				
-				case 6: c.precioTotalCarrito();
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				case 6: 
+					if(usuario.getTipo() == 2) {
+						c.precioConDescuento();
+					}else
+						c.precioTotalCarrito();
+					
+				saltarMenu();
 				break;
 				
-				case 7: ordenarPrecioMayor(datos);
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				case 7: datos.precioAscendente(productosOrdenados);
+				saltarMenu();
 				break;
 				
-				case 8: ordenarPrecioMenor(datos);
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				case 8: datos.precioDescendente(productosOrdenados);
+				saltarMenu();
 				break;
 				
 				case 9: 
 				datos.getProductosStock();
 				System.out.println("");
 				datos.getProductosNoStock();
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				saltarMenu();
 				break;
 				
 				default: System.out.println("Opcion incorrecta, selecciona otra opcion");
@@ -119,13 +130,13 @@ public class Main {
 			
 			}while(menu != 10);
 		
-		}else {
+		}else if(usuario.getTipo()==1){
 			
 			//Menú admin
 			
 			do {
 				
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 				
 				System.out.println("Selecciona la opciona que quieras: \n1)Listar productos " + "\n2)Modificar nombre producto" + "\n3)Modificar precio productos" + "\n4)Listar categorias" + "\n5)Modificar nombre categorias" + "\n6)Salir");
 				
@@ -133,34 +144,27 @@ public class Main {
 				
 				switch(menu) {
 				
-				case 1: datos.getProductos();
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				case 1:
+					datos.listarCategorias();
+					System.out.println("Selecciona la categoría que quieras modificar (id o 0 para salir): ");
+					datos.getProductos();
+				
 				break;
 				
 				case 2: modNombreProducto(datos);
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				saltarMenu();
 				break;
 				
 				case 3: modPrecioProducto(datos);
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				saltarMenu();;
 				break;
 				
 				case 4: datos.listarCategorias();
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				saltarMenu();
 				break;
 				
 				case 5: modNombreCategoria(datos);
-				System.out.println("Pulsa para salir ");
-				teclado.nextLine();
-				nombre=teclado.nextLine();
+				saltarMenu();
 				break;
 				
 				case 6: System.out.println("Saliendo del programa...");
@@ -233,54 +237,6 @@ public class Main {
 					System.out.println("Ese producto no está en la cesta, seleccione otro: ");
 			
 		}while(comp == false);
-		
-	}
-
-	public static void productoMasCaro(Datos datos) {
-		
-		ArrayList<Producto> productos = datos.getproductos();
-		
-		Collections.sort(productos, new OrdenarPorPrecio());
-		
-		datos.masCaro(productos);
-		
-		
-	}
-	
-	public static void productoMasBarato(Datos datos) {
-		
-		ArrayList<Producto> productos = datos.getproductos();
-		
-		Collections.sort(productos, new OrdenarPorPrecio());
-		
-		datos.masBarato(productos);
-		
-	}
-	
-	public static void ordenarPrecioMayor(Datos datos) {
-		
-		ArrayList<Producto> productosMayor = new ArrayList<Producto>();
-		
-		productosMayor.addAll(datos.getproductos());
-		
-		Collections.sort(productosMayor, new OrdenarPorPrecio());
-		
-		datos.precioAscendente(productosMayor);
-		
-	}
-	
-	public static void ordenarPrecioMenor(Datos datos) {
-		
-		ArrayList<Producto> productosMayor = new ArrayList<Producto>();
-		
-		productosMayor.addAll(datos.getproductos());
-		
-		Collections.sort(productosMayor, new OrdenarPorPrecio());
-		
-		datos.precioDescendente(productosMayor);
-	}
-	
-	public static void ordenarDisponibilidad(Datos datos) {
 		
 	}
 
@@ -387,5 +343,11 @@ public class Main {
 		
 		}while(comp == false);
 		
+	}
+
+	public static void saltarMenu() {
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Pulsa para salir ");
+		teclado.nextLine();
 	}
 }

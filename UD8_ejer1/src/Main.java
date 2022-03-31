@@ -33,7 +33,7 @@ public class Main {
 		
 		do {
 		
-		System.out.println("Elije una de las siguientes opciones: \n1)Listar electrodomésticos \n2)Añadir electrodomestico \n3)Eliminar electrodoméstico \n4)Mostrar precio agrupado \n5)Salir");
+		System.out.println("Elije una de las siguientes opciones: \n1)Listar electrodomésticos \n2)Añadir electrodomestico \n3)Eliminar electrodoméstico \n4)Mostrar precio agrupado \n5)Ordenar por precio (menor a mayor) \n6)Ordenar por peso (mayor a menor) \n7)Ordenar por eficiencia energética (mejor a peor) \n8)Salir del programa");
 		
 		opcion = teclado.nextInt();
 		
@@ -56,20 +56,22 @@ public class Main {
 			
 			case 5:	System.out.println("Lista de precio de menor a mayor: \n");
 					ordenarPrecio(electrodomesticos);
+			break;
 					
 			case 6: System.out.println("Lista de peso de mayor a menor: \n");
 					ordenarPeso(electrodomesticos);
+			break;
 					
-			case 7:
+			case 7: System.out.println("Lista de eficiencia energética de mejor a peor: \n");
 					ordenarConsumo(electrodomesticos);
-				
+
 			break;
 			
 			default: System.out.println("Opción incorrecta");
 			
 			}
 		
-		}while(opcion != 5);
+		}while(opcion != 8);
 		
 		
 		

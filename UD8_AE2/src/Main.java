@@ -124,6 +124,8 @@ public class Main {
 				saltarMenu();
 				break;
 				
+				case 10: System.out.println("Saliendo de la tienda...");
+				
 				default: System.out.println("Opcion incorrecta, selecciona otra opcion");
 				
 				}
@@ -148,6 +150,7 @@ public class Main {
 					datos.listarCategorias();
 					System.out.println("Selecciona la categoría que quieras modificar (id o 0 para salir): ");
 					datos.getProductos();
+					saltarMenu();
 				
 				break;
 				
@@ -156,7 +159,7 @@ public class Main {
 				break;
 				
 				case 3: modPrecioProducto(datos);
-				saltarMenu();;
+				saltarMenu();
 				break;
 				
 				case 4: datos.listarCategorias();

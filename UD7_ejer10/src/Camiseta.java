@@ -1,13 +1,12 @@
 
 public class Camiseta extends Articulo{
 	
-	private char talla;
-	private String color;
+	private String color, talla;
 	
-	public char getTalla() {
+	public String getTalla() {
 		return talla;
 	}
-	public void setTalla(char talla) {
+	public void setTalla(String talla) {
 		this.talla = talla;
 	}
 	public String getColor() {
@@ -21,7 +20,7 @@ public class Camiseta extends Articulo{
 		
 	}
 	
-	public Camiseta(String categoria, int precio, boolean descuento, char talla, String color) {
+	public Camiseta(String categoria, int precio, boolean descuento, String talla, String color) {
 		super(categoria,precio, descuento);
 		this.talla=talla;
 		this.color=color;

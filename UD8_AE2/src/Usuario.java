@@ -62,6 +62,8 @@ public class Usuario {
 		System.out.println("Ahora una contraseña: ");
 		this.contraseña=teclado.nextLine();
 		
+		this.tipo=2;
+		
 		return this;
 		
 		

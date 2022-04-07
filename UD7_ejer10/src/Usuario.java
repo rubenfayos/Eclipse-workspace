@@ -1,13 +1,12 @@
-import java.util.Date;
 
 public class Usuario {
 	
 	private String nombre, apellidos;
-	private Date fechaRegistro;
+	private String fechaRegistro;
 	private int edad;
 	
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -18,10 +17,10 @@ public class Usuario {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	public Date getFechaRegistro() {
+	public String getFechaRegistro() {
 		return fechaRegistro;
 	}
-	public void setFechaRegistro(Date fechaRegistro) {
+	public void setFechaRegistro(String fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
 	public int getEdad() {
@@ -31,14 +30,11 @@ public class Usuario {
 		this.edad = edad;
 	}
 	
-	public Usuario() {
-		
-	}
 	
-	public Usuario(String nombre, String apellido, Date fechaRegistro, int edad) {
+	public Usuario(String nombre, String apellido, String fecha, int edad) {
 		this.nombre=nombre;
 		this.apellidos=apellido;
-		this.fechaRegistro=fechaRegistro;
+		this.fechaRegistro=fecha;
 		this.edad=edad;
 	}
 

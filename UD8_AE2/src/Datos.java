@@ -49,8 +49,7 @@ public class Datos{
 		//Usuarios
 		
 		
-		usuarios.add( new Usuario(3, 99, "Anonimo", "20882841Z", "cont"));
-		usuarios.add( new Usuario(0, 1, "Ruben", "20882841Z", "cont"));
+		usuarios.add( new Usuario(0, 1, "admin", "20882841Z", "contraseña"));
 		usuarios.add( new Usuario(13, 2, "Antoni Dolz", "20321312A", "1234"));
 		usuarios.add( new Usuario(26, 2, "Samuel L. Jackson", "20831231T", "contraseña"));
 		usuarios.add( new Usuario(78, 3, "Oscar BK", "2080909G", "Manzana"));
@@ -81,7 +80,9 @@ public class Datos{
 	public Usuario comprobarUsuario(String nombre){
 		Scanner teclado = new Scanner(System.in);
 		int cont = 3;
+		boolean comp = false;
 		String contraseña = "";
+		Usuario u = new Usuario();
 		
 		for(Usuario usuario:usuarios) {
 			if(nombre.equals(usuario.getNombre())) {
@@ -91,9 +92,9 @@ public class Datos{
 					contraseña = teclado.nextLine();
 					if(contraseña.equals(usuario.getContraseña())) {
 						System.out.println("Inicio de sesion correcto, iniciando sesión... ");
-
+						u=usuario;
 						cont = -1;
-						return usuario;
+						comp=true;
 					}else {
 						cont--;
 						if(cont > 0)
@@ -101,12 +102,21 @@ public class Datos{
 					}
 					
 				}while(cont > 0);
-					if(cont == 0)
-						System.out.println("Inicio de sesion incorrecto, cerrando sesion... ");
+					if(cont == 0) {
+						System.out.println("Inicio de sesion incorrecto, se va a crear un nuevo usuario ");
+						u=u.creacionUsuario();
+						comp=true;
+					}
+						
 			}
 		}
 		
-		return usuarios.get(0);
+		if(comp==false) {
+			System.out.println("Ese nombre de usuario no existe, vamos a crear uno nuevo: ");
+			u=u.creacionUsuario();
+		}
+		
+		return u;
 	}
 	
 	public Datos() {

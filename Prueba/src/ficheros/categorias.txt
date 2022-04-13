@@ -1,0 +1,8 @@
+Categoria c1 = new Categoria(1, "Zapatillas");
+		categorias.add(c1);
+		Categoria c2 = new Categoria(2, "Sandalias");
+		categorias.add(c2);
+		Categoria c3 = new Categoria(3, "Botas");
+		categorias.add(c3);
+		Categoria c4 = new Categoria(4, "Zapatos traje");
+		categorias.add(c4);

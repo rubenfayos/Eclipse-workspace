@@ -1,0 +1,23 @@
+		Producto(1, "Nike Airforce", 99.99, c1, true));
+		productos.add( new Producto(2, "Nike Blazer Mid", 89.99, c1, true));
+		productos.add( new Producto(3, "Adidas Ozelia", 59.99, c1, false));
+		productos.add( new Producto(4, "Converse All Star", 79.99, c1, true));
+		productos.add( new Producto(5, "Adidas Forum Low", 99.95, c1, false));
+		
+		productos.add( new Producto(6, "Crocs Classic", 26.99, c2, false));
+		productos.add( new Producto(7, "Quicksilver Molokai", 17.99, c2, true));
+		productos.add( new Producto(8, "Crocs Classic Lined", 29.99, c2, false));
+		productos.add( new Producto(9, "Nike Victori", 23.95, c2, true));
+		productos.add( new Producto(10, "Jordan Break", 25.45, c2, true));
+		
+		productos.add( new Producto(11, "Boss Firstclass", 244.95, c3, true));
+		productos.add( new Producto(12, "Pier One black", 29.99, c3, true));
+		productos.add( new Producto(13, "Yourturn", 27.95, c3, false));
+		productos.add( new Producto(14, "Timberland", 104.95, c3, false));
+		productos.add( new Producto(15, "Dr. Martens", 145.00, c3, false));
+		
+		productos.add( new Producto(16, "Boss Lisbon", 269.95, c4, true));
+		productos.add( new Producto(17, "Geox mocasines", 69.95, c4, false));
+		productos.add( new Producto(18, "Pier One Zapatos", 34.99, c4, true));
+		productos.add( new Producto(19, "Kartamo Zapatos", 29.90, c4, false));
+		productos.add( new Producto(20, "Bullboxer", 59.45, c4, false));

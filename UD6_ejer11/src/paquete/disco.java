@@ -4,7 +4,7 @@ public class disco {
 	
 	private int id, genero, año;
 	String nombre, autor;
-	cancion[] canciones = new cancion[5];
+	
 	
 	//Getters & Setters
 	
@@ -72,5 +72,6 @@ public class disco {
 	}
 	
 	
+
 
 }

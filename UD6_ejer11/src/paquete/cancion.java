@@ -6,6 +6,7 @@ public class cancion {
 	
 	private int id, duracion, valoracion;
 	private String nombre;
+	private disco disco;
 	
 	//getters & setters
 	
@@ -40,11 +41,16 @@ public class cancion {
 		
 	}
 	
-	public cancion(int id, String nombre, int duracion, int valoracion) {
+	public cancion(int id, String nombre, int duracion, int valoracion, disco disco) {
 		this.id = id;
 		this.nombre = nombre;
 		this.duracion = duracion;
 		this.valoracion = valoracion;
+		this.disco = disco;
+	}
+	
+	public disco getdisco() {
+		return this.disco;
 	}
 
 }

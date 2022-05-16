@@ -2,7 +2,7 @@ package paquete;
 
 public class disco {
 	
-	private int id, genero, año;
+	private int id, genero, aÃ±o;
 	String nombre, autor;
 	
 	
@@ -20,11 +20,11 @@ public class disco {
 	public void setGenero(int genero) {
 		this.genero = genero;
 	}
-	public int getAño() {
-		return año;
+	public int getAÃ±o() {
+		return aÃ±o;
 	}
-	public void setAño(int año) {
-		this.año = año;
+	public void setAÃ±o(int aÃ±o) {
+		this.aÃ±o = aÃ±o;
 	}
 	public String getNombre() {
 		return nombre;
@@ -41,12 +41,12 @@ public class disco {
 	
 	// Constructores
 	
-	public disco(int id, String nombre, String autor, int genero, int año) {
+	public disco(int id, String nombre, String autor, int genero, int aÃ±o) {
 		this.id=id;
 		this.nombre=nombre;
 		this.autor=autor;
 		this.genero=genero;
-		this.año=año;	
+		this.aÃ±o=aÃ±o;	
 	}
 	
 	public int getDuracionTotalDisco(cancion[] canciones) {
